@@ -9,7 +9,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return "car preformance analyzer backend is running :)"
+    return "RevRank backend is running :)"
 
 
 if __name__ == '__main__':

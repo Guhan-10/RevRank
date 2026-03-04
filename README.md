@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# 🏁 RevRank
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application for tracking, comparing, and ranking car performance data. Built with a **React** frontend and a **Flask + MongoDB** backend.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **Garage** — View all stored cars in a clean card-based layout
+- **Add Car** — Submit car performance data via a sleek form
+- **Compare Cars** — Side-by-side comparison of two vehicles
+- **Top Cars** — Ranked leaderboard of top-performing cars
+- **Modern UI** — Dark-mode glassmorphism design with smooth animations
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+| Layer     | Technology                          |
+|-----------|-------------------------------------|
+| Frontend  | React 19, React Router v7, Axios    |
+| Backend   | Python, Flask, Flask-CORS           |
+| Database  | MongoDB (via PyMongo)               |
+| Styling   | Vanilla CSS (glassmorphism + dark mode) |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+revrank/
+├── backend/
+│   ├── app.py              # Flask entry point
+│   ├── data_base.py        # MongoDB connection
+│   ├── requirements.txt
+│   ├── routes/             # API route blueprints
+│   ├── service/            # Business logic
+│   └── utils/              # Helper utilities
+└── src/
+    ├── components/
+    │   ├── Navbar.js
+    │   ├── CarCard.js
+    │   ├── AddCar.js
+    │   ├── CompareCars.js
+    │   └── Dashboard.js
+    ├── pages/
+    │   ├── HomePage.js
+    │   ├── GaragePage.js
+    │   ├── AddCarPage.js
+    │   ├── ComparePage.js
+    │   ├── TopCarsPage.js
+    │   └── ViewCars.js
+    ├── services/            # Axios API calls
+    └── App.js
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js ≥ 18
+- Python ≥ 3.9
+- A running MongoDB instance (local or Atlas)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the Repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/your-username/revrank.git
+cd revrank
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Set Up the Backend
 
-## Learn More
+```bash
+cd backend
+pip install -r requirements.txt
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a `.env` file in the `backend/` directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```env
+MONGO_URI=mongodb://localhost:27017/revrank
+```
 
-### Code Splitting
+Start the Flask server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+python app.py
+```
 
-### Analyzing the Bundle Size
+The backend will run at `http://localhost:5000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. Set Up the Frontend
 
-### Making a Progressive Web App
+From the project root:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm install
+npm start
+```
 
-### Advanced Configuration
+The app will open at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 📡 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Method | Endpoint         | Description              |
+|--------|------------------|--------------------------|
+| GET    | `/cars`          | Fetch all cars           |
+| POST   | `/cars`          | Add a new car            |
+| GET    | `/cars/top`      | Get top-performing cars  |
+| GET    | `/cars/compare`  | Compare two cars         |
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📦 Frontend Scripts
+
+| Command         | Description                    |
+|-----------------|--------------------------------|
+| `npm start`     | Start development server       |
+| `npm run build` | Build for production           |
+| `npm test`      | Run tests                      |
