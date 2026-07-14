@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RevRank/static/css/main.46c914c2.css",
+    "main.js": "/RevRank/static/js/main.68d99d48.js",
+    "index.html": "/RevRank/index.html",
+    "main.46c914c2.css.map": "/RevRank/static/css/main.46c914c2.css.map",
+    "main.68d99d48.js.map": "/RevRank/static/js/main.68d99d48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46c914c2.css",
+    "static/js/main.68d99d48.js"
+  ]
+}
