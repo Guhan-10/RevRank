@@ -10,7 +10,7 @@ import "./index.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/RevRank">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
