@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.register_blueprint(car_bp)
 
 # Comma-separated list of origins allowed to call the API.
-# Production: https://guhan-10.github.io (origin only, no /RevRank path).
+# Origins only, no path (e.g. https://guhan-10.github.io, not .../RevRank).
 allowed_origins = [
     origin.strip()
     for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")

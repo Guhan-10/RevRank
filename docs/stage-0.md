@@ -1,6 +1,6 @@
 # Stage 0 — Baseline and setup
 
-Week 1 of the v2 plan (starting 16 Nov 2026). Goal: freeze v1, put the app online, and run tests on every pull request.
+Week 1 of the v2 plan (starting 16 Nov 2026). Goal: freeze v1, run the app end to end on this laptop, and run tests on every pull request.
 
 ## 0.1 Freeze v1
 
@@ -20,14 +20,15 @@ v1 endpoints as they are in the code (the README table is wrong; fixed in Stage 
 | POST | `/car-compare/<name1>/<name2>` | Compare two cars by name |
 | GET | `/health` | New in Stage 0: 200 if the database answers a ping, else 503 |
 
-## 0.2 Host backend and database
+## 0.2 Backend and database on this laptop
 
-1. MongoDB Atlas: create a free M0 cluster and a database user. Under Network Access, allow `0.0.0.0/0` (Render has no fixed outbound IP on the free plan). Copy the connection string.
-2. Render: New → Blueprint, pick this repo. `render.yaml` creates `revrank-api`. Paste the Atlas string into `MONGO_URI` when asked.
-3. Check `https://<service>.onrender.com/health` returns `{"status": "ok", "database": "ok"}`.
-4. If Render gives a different URL from `https://revrank-api.onrender.com`, update `.env.production`.
+Decision (16 Nov 2026): no cloud hosting for now. MongoDB and the Flask backend both run on this laptop, so the app works only here. A public host or tunnel can come later, before the phone and beta checks need it.
 
-CORS only allows the origins in `ALLOWED_ORIGINS` (production: `https://guhan-10.github.io`; local default: `http://localhost:3000`).
+1. MongoDB: the local `mongod` service (v8.2) listens on `127.0.0.1:27017`. Keep it bound to localhost; don't expose it on the network.
+2. Backend: `cp backend/.env.example backend/.env`, then `cd backend && pip install -r requirements.txt && python app.py`.
+3. Check `http://127.0.0.1:5000/health` returns `{"status": "ok", "database": "ok"}`.
+
+CORS only allows the origins in `ALLOWED_ORIGINS` (default `http://localhost:3000`). Add `https://guhan-10.github.io` to use the Pages build from this laptop.
 
 ## 0.3 Frontend config
 
@@ -43,6 +44,6 @@ CORS only allows the origins in `ALLOWED_ORIGINS` (production: `https://guhan-10
 
 ## Gate to Stage 1
 
-- [ ] Public site works end to end with real data
+- [ ] Site works end to end on this laptop with real data (phone and 2-friends checks wait for a public backend)
 - [ ] CI runs on every pull request and is green
 - [ ] `v1.0.0` tag and v1 data export saved
