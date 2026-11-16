@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import AddCar from "../components/AddCar";
 import { Link } from "react-router-dom";
 
 function AddCarPage() {
-    const [refreshKey, setRefreshKey] = useState(0);
-
     return (
         <div className="page-container animate-fade-in">
             <div className="page-hero">
@@ -18,7 +16,7 @@ function AddCarPage() {
             </div>
 
             <div className="page-content-center">
-                <AddCar onCarAdded={() => setRefreshKey(k => k + 1)} />
+                <AddCar />
             </div>
         </div>
     );
