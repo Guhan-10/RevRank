@@ -1,4 +1,5 @@
-const BASE_URL = "http://127.0.0.1:5000";
+// Set per environment: .env.development for local, .env.production for the GitHub Pages build.
+const BASE_URL = (process.env.REACT_APP_API_URL || "").replace(/\/+$/, "");
 
 export const getCars = async () =>{
     const res = await fetch(`${BASE_URL}/cars`);
