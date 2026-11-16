@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: revrank-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: MONGO_URI
+        sync: false # set in the Render dashboard (MongoDB Atlas connection string)
+      - key: ALLOWED_ORIGINS
+        value: https://guhan-10.github.io
