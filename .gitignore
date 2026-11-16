@@ -23,3 +23,10 @@ __pycache__/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# python
+.venv/
+.pytest_cache/
+
+# v1 data exports (real data, keep out of git)
+backend/exports/
